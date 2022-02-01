@@ -13,6 +13,5 @@ jobs:
       image: epitechcontent/epitest-docker:devel
     steps:
       - uses: actions/checkout@v2
-      name: run compilation
       run: |
         make
