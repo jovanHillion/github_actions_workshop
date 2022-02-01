@@ -1,5 +1,4 @@
-name:
-  - Check Compilation
+name: Check Compilation
 
 on:
   push:
