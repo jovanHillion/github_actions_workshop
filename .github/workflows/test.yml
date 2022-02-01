@@ -9,5 +9,5 @@ jobs:
   compilation:
     name: compilation
     runs-on: ubuntu-latest
-  container:
-    image: epitechcontent/epitest-docker:devel
+    container:
+      image: epitechcontent/epitest-docker:devel
