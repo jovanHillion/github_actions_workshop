@@ -1,0 +1,14 @@
+name:
+  - Check Compilation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  compilation:
+    name: compilation
+    runs-on: ubuntu-latest
+  container:
+    image: epitechcontent/epitest-docker:devel
