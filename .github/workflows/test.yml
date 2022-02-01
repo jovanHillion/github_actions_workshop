@@ -11,3 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: epitechcontent/epitest-docker:devel
+    steps:
+      - name: run compilation
+      run: |
+        make
