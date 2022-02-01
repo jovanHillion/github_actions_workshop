@@ -1,0 +1,21 @@
+name: Run tests
+
+on:
+  workflow_run:
+    workflows: [Check Compilation]
+    types:
+      - completed
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    container:
+        image: epitechcontent/epitest-docker:devel
+    steps:
+      #Checkout
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      #Run
+      - name: Run the tests
+        run: test.sh
