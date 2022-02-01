@@ -8,14 +8,29 @@ on:
 
 jobs:
   unit-tests:
-    runs-on: ubuntu-latest
-    container:
+    on-success:
+      runs-on: ubuntu-latest
+      container:
         image: epitechcontent/epitest-docker:devel
-    steps:
-      #Checkout
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      #Run
-      - name: Run the tests
-        run: test.sh
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+      steps:
+
+        #Checkout
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        #Run
+        - name: Run the tests
+          run: make tests_run
+
+        - name: Show coverage
+          run: make coverage
+    on-failure:
+      runs-on: ubuntu-latest
+      container:
+        image: epitechcontent/epitest-docker:devel
+
+      if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        steps:
+          - run: echo 'The triggering workflow failed'
