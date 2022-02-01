@@ -8,7 +8,7 @@ on:
 jobs:
   compilation:
     name: compilation
-    - runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container:
       image: epitechcontent/epitest-docker:devel
     steps:
