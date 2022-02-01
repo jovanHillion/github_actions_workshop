@@ -7,10 +7,14 @@ on:
 
 jobs:
   compilation:
-    name: compilation
     runs-on: ubuntu-latest
-    container:
-      image: epitechcontent/epitest-docker:devel
+    container: epitechcontent/epitest-docker:devel
     steps:
-      - uses: actions/checkout@v2
-      - run: make
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: make
+
+      -name: Chekout if binary exist
+        run: ls my_hello
